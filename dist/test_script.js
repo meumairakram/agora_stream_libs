@@ -100,7 +100,7 @@ var rtc = {
 
 function joinStream (rtc, option, user_role = 'audience') {
     if (rtc.joined) {
-    //  Toast.error("Your already joined")
+    
         console.error('You already Joined the Stream');
         return;
     }
@@ -143,18 +143,16 @@ function joinStream (rtc, option, user_role = 'audience') {
        *      All users in the same channel should have the same type (number or string) of uid.
        *      If you use a number as the user ID, it should be a 32-bit unsigned integer with a value ranging from 0 to (232-1).
       **/
+
+      debugger;
       rtc.client.join(option.token ? option.token : null, option.channel, option.uid ? +option.uid : null, function (uid) {
-        
+        debugger;
         if(user_role == 'host') {
 
-          console.warn("join channel: " + option.channel + " success, uid: " + uid)
-          console.log("join channel: " + option.channel + " success, uid: " + uid)
           rtc.joined = true
 
           rtc.params.uid = uid
-          console.log('CLIENT UID,',uid);
 
-          console.log(option.microphoneId)
 
           // create local stream
           rtc.localStream = AgoraRTC.createStream({
@@ -168,16 +166,14 @@ function joinStream (rtc, option, user_role = 'audience') {
 
           globalStream = rtc.localStream;
 
-          console.log('Global Stream', globalStream);
-
+          debugger;
           // initialize local stream. Callback function executed after intitialization is done
           rtc.localStream.init(function () {
-            console.log("init local stream success")
             // play stream with html element id "local_stream"
             rtc.localStream.play("local_stream")
+            debugger;
 
             // publish local stream
-            
               publish(rtc)  
             
             
@@ -195,6 +191,7 @@ function joinStream (rtc, option, user_role = 'audience') {
     }, (err) => {
     //   Toast.error("client init failed, please open console see more detail")
       console.error(err)
+      debugger;
     })
   }
 
