@@ -1,0 +1,218 @@
+
+/*
+=== VidKazm | ===
+
+Author: Umair Akram <contactumairakram@gmail.com>
+Start Date: April 6 2014
+Version: 0.1
+
+=== Description ===
+
+This program will apply user templates to create uniform header documentation 
+for each source file specified.
+It uses the file extension to map to a given template file, 
+so it can support any language.
+
+
+*/
+
+
+
+.mainwrapper.vidkazm-wrapper {
+    display: inline-block;
+    position: relative;
+    width:100%;
+    height:100%;
+}
+
+.vidkazm-wrapper .mainControlBar {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 0px 6% 25px 30px;
+    
+    display: flex;
+}
+
+
+@media only screen and (max-width: 1200px) {
+
+    .vidkazm-wrapper .mainControlBar {
+        padding: 0px 18% 25px 30px;
+    }
+    
+}
+
+
+.vidkazm-wrapper .playPauseIcon img {
+    width: 25px;
+    height: 25px;
+}
+
+.vidkazm-wrapper .playPauseIcon img {
+    display: none;
+    cursor:pointer;
+}
+
+.vidkazm-wrapper .playPauseIcon.paused img.playbtn {
+    display: inline-block;
+}
+
+
+.vidkazm-wrapper .playPauseIcon.playing img.pausebtn {
+    display: inline-block;
+}
+
+
+
+.vidkazm-wrapper .volumeBtn.control {
+    margin-left: 20px;
+    cursor:pointer;
+    display:flex;
+}
+
+
+.vidkazm-wrapper .volumeBtn .volumeIcon img {
+    width: 30px;
+    height: 30px;
+}
+
+.vidkazm-wrapper .playPauseIcon {
+    margin-top: 2px;
+    display: inline-block;
+}
+
+.vidkazm-wrapper .volumeBtn.control .volumeSeek {
+    width: 90px;
+    margin-left: 10px;
+    /* background: rgba(0,0,0,0.4); */
+    transition: all 0.35s ease 0s;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.vidkazm-wrapper .volumeBtn.control:hover .volumeSeek {
+    transform: scaleX(1);
+}
+
+
+
+
+
+/*RANGE SLIDER*/
+.vidkazm-wrapper input[type=range]#volumeController {
+    -webkit-appearance: none;
+}
+
+
+
+/*CSS*/
+.vidkazm-wrapper input[type="range"]#volumeController {
+	-webkit-appearance: none;
+	width: 100%;
+	background-color: transparent;
+	height: 30px;
+	padding-top: 0px;
+}
+
+/* input[type=range] { */
+  /* -webkit-appearance: none; Hides the slider so that custom slider can be made */
+  /* width: 17%; Specific width is required for Firefox. */
+    /* background-color:transparent; */
+  /* height:40px; */
+  /* padding-top: 20px; */
+/* } */
+
+
+/* Special styling for WebKit/Blink */
+.vidkazm-wrapper input[type=range]#volumeController::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.5);
+  height: 10px;
+  width: 10px;
+  border-radius: 10px;
+  border: 0.2px solid #010101;
+  cursor: pointer;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -3px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+
+/* All the same stuff for Firefox */
+.vidkazm-wrapper input[type=range]#volumeController::-moz-range-thumb {
+  box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.5);
+  height: 15px;
+  width: 15px;
+  border-radius: 20px;
+  border: 0px solid #010101;
+  cursor: pointer;
+
+}
+
+
+.vidkazm-wrapper input[type=range]#volumeController::-webkit-slider-runnable-track {
+  width: 20px !important;
+  height: 3px;
+  cursor: pointer;
+  background: white;
+  border-radius: 30px;
+}
+
+.vidkazm-wrapper input[type=range]#volumeController:focus::-webkit-slider-runnable-track {
+  background: #367ebd;
+}
+
+.vidkazm-wrapper input[type=range]#volumeController::-moz-range-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  background: white;
+  border-radius: 5px;
+  border: 0px solid #010101;
+  
+}
+  
+
+/*FOCUS Bei Chrome ausschalten*/
+
+.vidkazm-wrapper input[type=range]#volumeController:focus {
+    outline: none;
+}
+
+.vidkazm-wrapper input[type=range]#volumeController:focus::-webkit-slider-runnable-track {
+    background: white;
+}  
+
+.vidkazm-wrapper input[type=range]#volumeController::-moz-focus-outer {
+    border: 0;
+    }
+
+
+    
+.vidkazm-wrapper .full-screen-control img {
+    width: 25px;
+    height: 25px;
+}
+
+.vidkazm-wrapper .full-screen-control {
+    margin-left:auto;
+    cursor:pointer;
+}
+
+
+.volumeIcon .mute {
+    display: none;
+
+}
+
+
+.volumeIcon.ismute .mute {
+    display: inline-block;
+}
+
+
+.volumeIcon.ismute .volume {
+    display: none;
+}
