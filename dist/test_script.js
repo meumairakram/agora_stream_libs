@@ -116,9 +116,13 @@ function joinStream (rtc, option, user_role = 'audience') {
 
     rtc.params = option
 
+    debugger;
+
     // handle AgoraRTC client event
     handleEvents(rtc)
 
+
+    debugger;
     // init client
     rtc.client.init(option.appID, function () {
       console.log("init success")
